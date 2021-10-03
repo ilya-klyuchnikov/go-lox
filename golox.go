@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"flag"
 	"fmt"
 	"golox/ast"
 	"golox/env"
@@ -80,10 +79,7 @@ func run(src string, env *env.Environment) {
 }
 
 func main() {
-	flag.String("file", "", "the script file to execute")
-	flag.Parse()
-
-	args := flag.Args()
+	args := os.Args[1:]
 	if len(args) > 1 {
 		fmt.Println("Usage: ./golox [script]")
 		os.Exit(64)
